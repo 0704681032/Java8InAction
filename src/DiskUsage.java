@@ -38,9 +38,8 @@
  */
 
 
-import java.nio.file.*;
-import java.nio.file.attribute.*;
 import java.io.IOException;
+import java.nio.file.*;
 
 /**
  * Example utility that works like the df(1M) program to print out disk space

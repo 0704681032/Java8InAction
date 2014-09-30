@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+ <script >
+	//使用git
+     //1、1、2、3、5、8、13、21
+     //斐波那契数列
+     function fibo(n) { //利用递归
+        if ( n == 1 || n == 2 ) {
+            return 1;
+        }
+        return fibo(n-1)+fibo(n-2);
+     }
+
+     function fibo1(n) {//利用迭代
+        var  m1  = 1 ;
+        var  m2  = 1;
+        var  m3 = 0;
+        if ( n < 3 ){
+            return 1;
+        }
+        for (var j=0 ; j< n-2 ;j++ ) {
+            m3 = m1 + m2;
+            m1 = m2;
+            m2 = m3
+        }
+         return m3;
+     }
+
+     console.log(fibo(1)+":"+fibo1(1));
+     console.log(fibo(2)+":"+fibo1(2));
+     console.log(fibo(7)+":"+fibo1(7));
+     console.log(fibo(4)+":"+fibo1(4));
+     console.log(fibo(5)+":"+fibo1(5));
+     console.log(fibo(6)+":"+fibo1(6));
+
+
+
+     function bubbleSort(a){ //冒泡排序
+       var len = a.length;
+       var tmp;
+
+       for(var i = 0 ; i< len ;i++ ) {
+           for(var j= i+1 ; j<len ;j++ ) {
+                if ( a[j] < a[i] ) {
+                    tmp = a[j]  ;
+                    a[j] = a[i];
+                    a[i] = tmp;
+                }
+           }
+       }
+
+        return a;
+
+     }
+
+     console.log("bubbleSort:"+bubbleSort([9,3,78,12,1,4,2,7]));
+
+
+     function selectSort(a) { //普通选择排序
+         var len = a.length;
+         var tmp,minValue,iMinIndex;
+
+         for(var i = 0 ; i<len ;i++ ) {
+             iMinIndex = i;
+             minValue =  a[i] ;
+             for(var j= i+1 ; j<len ;j++ ) {
+                if (a[j] < minValue) {
+                    minValue = a[j];
+                    iMinIndex = j;
+                }
+             }
+
+             if ( i != iMinIndex) {
+                 tmp = a[iMinIndex]  ;
+                 a[iMinIndex] = a[i];
+                 a[i] = tmp;
+             }
+
+         }
+
+        return a;
+     }
+
+     console.log("selectSort:"+selectSort([9,3,78,12,1,4,2,7]));
+
+     function selectSort1(a) {//递归选择排序
+         var len = a.length;
+         //Uncaught RangeError: Maximum call stack size exceeded
+         //递归注意结束条件
+         if(len==1) {
+            return a;
+         }
+         var tmp,minValue = a[0],iMinIndex=0;
+         for(var j= 1 ; j<len ;j++ ) {
+             if (a[j] < minValue) {
+                 minValue = a[j];
+                 iMinIndex = j;
+             }
+         }
+         var c = a.splice(iMinIndex,1);
+         return c.concat(selectSort1(a));
+     }
+     console.log("selectSort1:"+selectSort1([9,3,78,12,1,4,2,7]));
+
+     //数据去重 普通和利用json
+
+     //TODO 二叉树
+
+     //TODO 更多排序  红黑树
+
+ </script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
