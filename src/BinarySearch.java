@@ -55,7 +55,7 @@ public class BinarySearch {
 
 
     /*
-    C++
+    这是非递归版本 适合于java和c++
 * searches for a value in sorted array
 *   arr is an array to search in
 *   value is searched value
