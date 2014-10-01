@@ -2,7 +2,8 @@ package lambdasinaction.chap10;
 
 import org.junit.*;
 
-import java.util.*;
+import java.util.Optional;
+import java.util.Properties;
 
 import static java.util.Optional.*;
 import static org.junit.Assert.assertEquals;
