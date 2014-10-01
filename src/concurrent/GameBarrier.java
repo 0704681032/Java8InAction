@@ -6,7 +6,17 @@ import java.util.concurrent.CyclicBarrier;
 /**
  * http://blog.csdn.net/flyingpig4/article/details/5813945
  */
+
+/**
+ * edit by jyy
+ * 对代码进行改造
+ * 需求如下:等所有玩家都过了某一关的时候才能玩下一关
+ */
+
 public class GameBarrier {
+
+    public static final int TOTAL= 5 ;
+
     public static void main(String[] args) {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(4, new Runnable() {
             @Override
@@ -27,19 +37,23 @@ class Player implements Runnable {
         this.cyclicBarrier = cyclicBarrier;
         this.id = id;
     }
-
+    private int current = 1;
 
 
     @Override
     public void run() {
-        try {
-            System.out.println("玩家" + id + "正在玩第一关...");
-            cyclicBarrier.await();
-            System.out.println("玩家" + id + "进入第二关...");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (BrokenBarrierException e) {
-            e.printStackTrace();
+        while( current <= GameBarrier.TOTAL ) {
+            try {
+                System.out.println("玩家" + id + "正在玩第"+current+"关...");
+                cyclicBarrier.await();
+                current++;
+                //System.out.println("玩家" + id + "进入第二关...");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 }
