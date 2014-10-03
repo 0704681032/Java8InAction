@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+
+        /**
+         * 相当蛋疼
+         * 1.每一个对象都有__proto__属性,指向创建这个对象的函数的prototype
+         *
+         * 2.函数的创建实际上是如此:
+         *  new Function
+         */
+        function Person(name ,age ) {
+            this.name = name ;
+            this.age = age ;
+        }
+
+        //函数的定义方式2
+        var  Dialog = new Function("config","alert(config.x)");
+        var d = new Dialog({x:3});
+
+        console.log(Person.__proto__==Function.prototype);
+
+        console.log(Person.prototype.__proto__ == Object.prototype);
+
+        var person = new Person('jyy',26);
+        console.log(person.__proto__ == Person.prototype);
+
+        console.log(Function instanceof  Object);
+        console.log(Object instanceof  Function);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
