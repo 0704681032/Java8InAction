@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript">
+
+        //jQuery : next = function() {
+            //jQuery.dequeue( elem, type );
+        //};
+
+        //next 用于express的中间件
+
         /**
          * 要求前面一个函数执行完才能执行下一个
          * @param fn1
@@ -16,37 +23,21 @@
             var i = 0 ;
 
             var wrapFunc = function(originFn,index) {
-                var next = outerArg[index+1];
-                //console.log(next);
-                (function(n) {
-                    //console.log(n);
-                    var f =  function() {
-
-                        //console.log(n);
-                        //console.log("originFn:"+originFn);
-
-                        //originFn.call(null);
-
-                        //console.log("next:"+next);
-
-                       //n && n();
-                    }
-                    console.log("f:"+f);
-                    return f;
-                })(next);
+                outerArg[index] = function() {
+                    var next = outerArg[index+1];
+                    originFn.call(null);
+                    next && next();
+                }
             }
 
-            var fns = [];
 
             for(;i<len;i++) {
-                console.log(wrapFunc( arguments[i],i ));
+                wrapFunc( arguments[i],i );
                 //console.log(i+":"+fns[i]);
             }
 
-            //console.log(arguments[2]);
-            //arguments[0]();
 
-
+            arguments[0]();
 
         }
 
@@ -62,7 +53,11 @@
             console.log("f3");
         }
 
-        call(f1,f2,f3);
+        function f5() {
+            console.log("555");
+        }
+
+        call(f1,f2,f3,f5);
     </script>
 </head>
 <body>
