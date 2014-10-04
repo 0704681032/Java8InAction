@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+
+        /**
+         * 涉及到的一些概念
+         *    1.执行上下文栈
+         *    2.作用域,要到创建这个函数的那个作用域中取值——是“创建”，而不是“调用”，切记切记——其实这就是所谓的“静态作用域”。
+         */
+
+
+        var x  = 10 ;
+
+        function fn() {
+            console.log(x);
+        }
+
+        function show(f){
+            var x =  20;
+            (function(){
+                f();
+            })();
+        }
+        show(fn);//输出是10,而不是20
+
+        //这个例子 很好的诠释了 函数的"静态作用域"
+    </script>
+</head>
+<body>
+
+</body>
+</html>
