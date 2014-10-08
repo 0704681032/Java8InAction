@@ -14,7 +14,7 @@ public class A7 {
 		
 		String Boolean ;
 		
-		char a = '’≈';
+		char a = 'Âº†';
 		
 		for ( int i = 0 ; i < 100 ;i++) {
 			int t = new Random().nextInt(6);
