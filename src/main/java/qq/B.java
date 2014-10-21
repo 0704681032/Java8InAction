@@ -1,4 +1,4 @@
-package qq;
+package main.java.qq;
 
 /**
  * Created by jyy on 2014/10/21.

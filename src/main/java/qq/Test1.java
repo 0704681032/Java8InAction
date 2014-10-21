@@ -1,8 +1,4 @@
-package qq;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+package main.java.qq;
 
 /**
  * Created by jyy on 2014/10/21.
