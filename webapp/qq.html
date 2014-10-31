@@ -50,7 +50,7 @@ console.log(13&5);
 console.log(13>>2);
 console.log(-13>>2);
 
-//TODO 一个数转化为二进制 利用stack
+
 
 //void(0)
 
@@ -74,6 +74,25 @@ console.log("64"-4);
 console.log(typeof null);//object
 
 //console.log(parseInt(15,2));
+
+//1个数转化为二进制 利用stack
+function transfer( n ) {
+
+    var tmp = n;
+    var arr = [];
+
+    while ( tmp != 0 ) {
+        arr.unshift(parseInt(tmp%2));
+        tmp = parseInt(tmp /2) ;
+    }
+
+    console.log(arr);
+
+}
+
+transfer(13);
+
+transfer(5);
 
 
 </script>
