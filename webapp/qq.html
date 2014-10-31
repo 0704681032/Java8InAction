@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script type="text/javascript">
+
+function test(a,b,c){
+
+	var a = Array.prototype.slice.call(arguments);
+
+	console.log(arguments);
+
+	console.log(a);
+
+	var b = Array.prototype.slice.call(arguments,1);
+	console.log(b);
+	console.log(arguments);
+}	
+
+//test('1','2','3');
+
+console.log(test.length);//获取一个函数定义时可以传递的参数的个数
+
+if ( !( a in window ) )
+{
+	var a = 1;
+}
+console.log(a);
+
+
+var t = [ 6,5,17,4];
+console.log(Math.max.apply(null,t));
+
+var x = 12;
+var obj = {
+	x: 14,
+	doIt: function() {
+		
+		setTimeout(function(){
+			alert(this.x);
+		},1000)
+	}
+}
+console.log(obj.doIt());
+////doIt没有返回值 此处undifined
+
+console.log(13|5);
+console.log(13&5);
+console.log(13>>2);
+console.log(-13>>2);
+
+//TODO 一个数转化为二进制 利用stack
+
+//void(0)
+
+var s = "hello world!";
+console.log(s.replace(/world/,"JavaScript"));
+console.log(s);//原本的s没有发生变化
+
+
+
+console.log("*"+s.charAt(5)+"*");
+
+//TODO 空格去除
+
+console.log(navigator.userAgent);//chrome浏览器检查 正则
+
+
+console.log("1"+2+3);//123
+console.log("64"-4);
+//var t = 3*NAN;//60
+
+console.log(typeof null);//object
+
+//console.log(parseInt(15,2));
+
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>
