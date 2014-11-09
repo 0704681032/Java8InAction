@@ -150,8 +150,9 @@
                 array[j] = tmp;
             }
         }
+        return array;
     }
-    console.log("insertSort:"+quickSort([9,3,78,12,1,4,2,7]));
+    console.log("insertSort:"+insertSort([9,3,78,12,1,4,2,7]));
 
      //希尔排序 改进版的插入排序
     var gaps = [5,2,1];
@@ -164,21 +165,65 @@
                 //假设j=100,gap=5
                 tmp = array[j];
                 k = j;
-                while (k>gap&&array[k-gap]>tmp) {
+                while (k>=gap&&array[k-gap]>tmp) {
                     array[k] = array[k-gap];
                     k-=gap;
                 }
-                array[j] = tmp;
+                array[k] = tmp;
 
             }
         }
+        return array;
     }
-    console.log("shellSort:"+quickSort([9,3,78,12,1,4,2,7,178,980,66]));
+    console.log("shellSort:"+shellSort([9,3,78,12,1,4,2,7,178,980,66]));
 
 
     //TODO 归并排序 堆排序
 
     //TODO 二叉树的遍历(递归  非递归)
+     var mergeSort = function (arr) {
+        merge(arr,0,arr.length-1);
+     }
+
+     var merge = function(arr,start,end) {
+        if ( start >=end ) {
+            return ;
+        }
+        var middle = (end-start)/2+start;
+        merge(arr,start,middle);
+        merge(arr,middle,end);
+        innerMerge(arr,start,middle,end);
+    }
+
+     var innerMerge = function (arr,start,middle,end) {
+            var result = [];
+            var i = start,j = middle;
+
+            while( i < middle && j < end ) {//取两边的最小值
+                if ( arr[i] < arr[j] ) {
+                    result.push( arr[i]);
+                    i++;
+                } else {
+                    result.push( arr[j]);
+                    j++;
+                }
+            }
+
+            while ( i<= middle ) {
+                result.push( arr[i++]);
+            }
+
+             while ( j<= end ) {
+                 result.push( arr[j++]);
+             }
+
+             //复制到原数组
+            for(var k=start;k<=end;k++) {
+                arr[k] = result.shift();
+            }
+     }
+    //Uncaught RangeError: Maximum call stack size exceeded  需要用非递归的方式实现
+    //console.log("mergeSort:"+mergeSort([9,3,78,12,1,4,2,7,178,980,66]));
 
  </script>
     <meta charset="UTF-8">
