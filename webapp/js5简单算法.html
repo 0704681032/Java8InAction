@@ -112,9 +112,73 @@
 
      //数据去重 普通和利用json
 
-     //TODO 二叉树
+     //快速排序
+     var quickSort = function(array) {
+        if ( array.length <=1 ) {
+            return array;
+        }
 
-     //TODO 更多排序  红黑树
+        var middle = array[0];//中轴
+        var lefArray = [];
+        var rightArray = [];
+        var len = array.length;
+        for(var i=1 ;i<len;i++) {
+            if ( array[i] > middle ) {
+                rightArray.push(array[i] );
+            } else {
+                lefArray.push(array[i] );
+            }
+        }
+        return quickSort(lefArray).concat(middle,quickSort(rightArray));//这里的concat的使用方式也是值得借鉴的
+    }
+
+    console.log("quickSort:"+quickSort([9,3,78,12,1,4,2,7]));
+
+
+     //插入排序
+    var insertSort = function(array) {
+        var len = array.length,i= 1,tmp,j;
+        for(;i<len;i++) {
+            tmp = array[i];//找到这个变量合适的位置插入
+            j = i;
+            while( j>0 && array[j-1]>tmp ) {
+                array[j] = array[j-1];
+                j--;
+            }
+
+            if ( i != j ) {
+                array[j] = tmp;
+            }
+        }
+    }
+    console.log("insertSort:"+quickSort([9,3,78,12,1,4,2,7]));
+
+     //希尔排序 改进版的插入排序
+    var gaps = [5,2,1];
+    var shellSort = function(array) {
+        var gap,totalLength = array.length, j,tmp,k;
+        for(var i=0;i<gaps.length;i++) {
+            gap = gaps[i];
+            for(j=gap;j<totalLength;j++) {
+
+                //假设j=100,gap=5
+                tmp = array[j];
+                k = j;
+                while (k>gap&&array[k-gap]>tmp) {
+                    array[k] = array[k-gap];
+                    k-=gap;
+                }
+                array[j] = tmp;
+
+            }
+        }
+    }
+    console.log("shellSort:"+quickSort([9,3,78,12,1,4,2,7,178,980,66]));
+
+
+    //TODO 归并排序 堆排序
+
+    //TODO 二叉树的遍历(递归  非递归)
 
  </script>
     <meta charset="UTF-8">
