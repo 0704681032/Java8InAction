@@ -182,30 +182,31 @@
 
     //TODO 二叉树的遍历(递归  非递归)
      var mergeSort = function (arr) {
-        merge(arr,0,arr.length-1);
+        return merge(arr,0,arr.length-1);
      }
 
      var merge = function(arr,start,end) {
         if ( start >=end ) {
             return ;
         }
-        var middle = (end-start)/2+start;
+        var middle = (end+start)/2;
         merge(arr,start,middle);
-        merge(arr,middle,end);
+        merge(arr,middle+1,end);
         innerMerge(arr,start,middle,end);
+        return arr;
     }
 
      var innerMerge = function (arr,start,middle,end) {
             var result = [];
-            var i = start,j = middle;
+            var i = start,j = middle+1;
 
-            while( i < middle && j < end ) {//取两边的最小值
+            while( i <= middle && j <= end ) {//取两边的最小值
                 if ( arr[i] < arr[j] ) {
-                    result.push( arr[i]);
-                    i++;
+                    result.push( arr[i++]);
+                   // i++;
                 } else {
-                    result.push( arr[j]);
-                    j++;
+                    result.push( arr[j++]);
+                    //j++;
                 }
             }
 
@@ -223,7 +224,7 @@
             }
      }
     //Uncaught RangeError: Maximum call stack size exceeded  需要用非递归的方式实现
-    //console.log("mergeSort:"+mergeSort([9,3,78,12,1,4,2,7,178,980,66]));
+    console.log("mergeSort:"+mergeSort([9,3,78,12,1,4,2,7,178,980,66]));
 
  </script>
     <meta charset="UTF-8">
