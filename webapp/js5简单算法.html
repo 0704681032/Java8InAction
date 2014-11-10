@@ -201,7 +201,7 @@
             var i = start,j = middle+1;
 
             while( i <= middle && j <= end ) {//取两边的最小值
-                if ( arr[i] < arr[j] ) {
+                if ( arr[i] <= arr[j] ) {
                     result.push( arr[i++]);
                    // i++;
                 } else {
@@ -217,6 +217,10 @@
              while ( j<= end ) {
                  result.push( arr[j++]);
              }
+
+             //if ( end == arr.length -1 && start==0) {
+                 console.log("arr:"+arr);
+             //}
 
              //复制到原数组
             for(var k=start;k<=end;k++) {
