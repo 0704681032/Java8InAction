@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{padding: 0;margin: 0;}
+		.login{width: 400px;height: 400px;border:1px solid gray;position: absolute;top:0;left: 0;}
+		.login p{line-height: 30px;background: #ccc;}
+		.login .close{float: right;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oIpunt = document.getElementsByTagName('input');
+			var d1 = new Dialog();
+			var d2 = new Dialog();
+			
+			oIpunt[0].onclick = function(){
+				d1.init({iNow:1,w:500,title:"公告",tID:"p0"});
+				d1.drag("p0");
+			}
+			oIpunt[1].onclick = function(){
+				d2.init({iNow:2,w:200,h:300,dir:"right",title:"广告",tID:"p1"});
+				d2.drag("p1");
+			}
+		}
+			function Dialog(){
+				this.oLogin = null;
+				this.otitle =null;
+				this.dix =0 ;
+				this.diY =0;
+				this.settings = {
+					w:300,
+					h:300,
+					dir:"center",
+					pID:"p1",
+					title:null
+				}
+			};
+			Dialog.prototype.json = {}
+			Dialog.prototype.init = function(opt){
+				extend(this.settings,opt);
+
+				if(this.json[opt.iNow]==undefined){	
+					this.json[opt.iNow]=true;
+				}
+				if(this.json[opt.iNow]){
+					this.creatdialog();
+					this.Fnclose();	
+					this.json[opt.iNow]=false;
+				}
+			}
+
+			//拖拽方法
+			Dialog.prototype.drag =function(pName){
+					var This= this;
+						this.otitle = document.getElementById(pName);
+						this.otitle.onmousedown = function(ev){
+						var ev = ev||window.event;	
+
+						This.FnDown(ev);
+						document.onmousemove = function(ev){
+							var ev = ev||window.event;
+								This.FnMove(ev);
+						}
+						document.onmouseup = function(ev){
+								document.onmousemove = null;
+								document.onmouseup = null;
+							}
+						}
+				}
+			Dialog.prototype.FnDown = function(ev){
+				this.diX = ev.clientX - this.oLogin.offsetLeft;
+				this.diY = ev.clientY -this.oLogin.offsetTop;
+			}
+			Dialog.prototype.FnMove = function(ev){
+				this.oLogin.style.left = ev.clientX - this.diX +"px";
+				this.oLogin.style.top = ev.clientY - this.diY +"px";
+			}
+
+			//创建组件方法
+
+			Dialog.prototype.creatdialog = function(pName){
+				this.oLogin = document.createElement("div");
+				this.oLogin.className = "login";
+				this.oLogin.innerHTML = '<p id = '+this.settings.tID+'><span>'+this.settings.title+'</span><span class="close">X</span></p><div class="content"></div>';
+				document.body.appendChild(this.oLogin);
+				this.creatdata(pName);
+			}
+
+			Dialog.prototype.creatdata = function(){
+				this.oLogin.style.width = this.settings.w + "px";
+				this.oLogin.style.height = this.settings.h + "px";
+				if(this.settings.dir =='center'){
+					this.oLogin.style.left = (viewWidth()-this.oLogin.offsetWidth)/2+"px";
+					this.oLogin.style.top = (viewHeight()-this.oLogin.offsetHeight)/2+"px";
+				}
+				if(this.settings.dir =='right'){
+					this.oLogin.style.left = viewWidth()-this.oLogin.offsetWidth+"px";
+					this.oLogin.style.top = viewHeight()-this.oLogin.offsetHeight+"px";
+				}
+			}
+			Dialog.prototype.Fnclose = function(){
+				var oClose = this.oLogin.getElementsByTagName('span')[1];
+				var This = this;
+				oClose.onclick = function(){
+					document.body.removeChild(This.oLogin);
+					This.json[This.settings.iNow]=true;
+				}
+				
+			}
+			function extend(obj1,obj2){
+				for(var arr in obj2){
+					obj1[arr] = obj2[arr];
+				}
+			}
+			function viewWidth(){
+				return document.documentElement.clientWidth;
+			}
+			function viewHeight(){
+				return document.documentElement.clientHeight;
+			}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮一"/>
+	<input type="button" value="按钮二"/>
+	<!-- <div  class="login">
+		<p><span>登录</span><span class="close">X</span></p>
+		<div class="content"></div>
+	</div> -->
+</body>
+</html>
