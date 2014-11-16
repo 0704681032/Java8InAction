@@ -2,6 +2,9 @@ package main.java;
 
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
+/**
+ * http://blog.csdn.net/fei33423/article/details/30316377
+ */
 public class CLHLock {
     public static class CLHNode {
         private volatile boolean isLocked = true;
