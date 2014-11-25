@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.Vector;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -21,10 +22,33 @@ public class SourceViewer {
 		
 		TreeMap treeMap = new TreeMap();
 		
+		String s;
+		
 		
 		StringBuffer sb = new StringBuffer();
 		
 		Lock lock = new ReentrantLock();
+
+		CountDownLatch countDownLatch;
+
+		Executors.newFixedThreadPool(4);
+
+		CopyOnWriteArrayList copyOnWriteArrayList;
+		
+		LinkedTransferQueue L;
+
+		ArrayBlockingQueue cl;
+
+
+		Thread thread;
+
+
+		CyclicBarrier cyclicBarrier;
+
+		Semaphore  semaphore;
+		
+		CompletionService completionService;
+
 		
 	}
 
