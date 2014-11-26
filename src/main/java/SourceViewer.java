@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Queue;
 import java.util.TreeMap;
 import java.util.Vector;
 import java.util.concurrent.*;
@@ -48,6 +49,8 @@ public class SourceViewer {
 		Semaphore  semaphore;
 		
 		CompletionService completionService;
+		
+		Queue queue;
 
 		
 	}
