@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="gb2312"?>
+<VisualStudioUserFile
+	ProjectType="Visual C++"
+	Version="9.00"
+	ShowAllFiles="false"
+	>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			>
+			<DebugSettings
+				Command="$(TargetPath)"
+				WorkingDirectory=""
+				CommandArguments=""
+				Attach="false"
+				DebuggerType="3"
+				Remote="1"
+				RemoteMachine="T410"
+				RemoteCommand=""
+				HttpUrl=""
+				PDBPath=""
+				SQLDebugging=""
+				Environment=""
+				EnvironmentMerge="true"
+				DebuggerFlavor=""
+				MPIRunCommand=""
+				MPIRunArguments=""
+				MPIRunWorkingDirectory=""
+				ApplicationCommand=""
+				ApplicationArguments=""
+				ShimCommand=""
+				MPIAcceptMode=""
+				MPIAcceptFilter=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			>
+			<DebugSettings
+				Command="$(TargetPath)"
+				WorkingDirectory=""
+				CommandArguments="&quot;(12)3+(4-5)!6**+*(7+8)9&quot; &quot;0 ! + 1 - ( 2 - ( 3 ! - 4 ) ^ 5 ) * 67 - 8 + 9&quot; &quot;(1+2^3!-4)*(5!-(6-(7-(89-0!))))&quot;  &quot; 3 ! ^ 4 * 5 + 6 &quot; &quot;6+5*4^3!&quot; &quot;(0!+1)*2^(3!+4)+5*6-7*8-9&quot; &quot;(0!+1)*2^(3!+4)-(5!-67-(8+9))&quot; &quot;(0!+1)*2^(3!+4)-5-6-7-8-9&quot; &quot;0!-(1+2)!*(3!+4-5)*67*(8-9)&quot; &quot;0!+1^2/3/4*5*67*8*9&quot; &quot;0!-(1-2)/3/4*5*67*8*9&quot; &quot;0!-1*((2-3!)*(4+5)!/6!+7+8-9)&quot; &quot;(0!+1+2)!+34*56+78+9&quot; &quot;0!+(1+2)!*(3-4)*5*67*(8-9)&quot; &quot;0!-(1+2)!+3!*4.5*(67+8)-9&quot; &quot;0!+1+(2+3)!-4.5*6!+7!+89&quot; &quot;0!^1-(2-3!)*(4+5)!/6!-7-8+9&quot; &quot;12.345 + 67 * (8 + 9)&quot; &quot;12+3-4&quot; &quot;12+3*4-5&quot;    2011   &quot;0!+1+2345-6*7*8&quot;   &quot;0!+((1+2)!*(3-4))*5*67*(8-9)&quot;   2010 &quot;0^1+(2+34)*56-7-8+9&quot; &quot;(0!+1+2)!+34*56-7+89&quot;  &quot;(0-1-23)/4*5*67*(8-9)&quot;   2009 &quot;0!+12^3+45*6-7+8+9&quot; &quot;0-1-(2-3!)*(4+5)!/6!-7-8+9&quot; &quot;0+1*2^(3+4*5^(6+7*8^9!))&quot; &quot;23 + 2*3^(2*3)&quot;"
+				Attach="false"
+				DebuggerType="3"
+				Remote="1"
+				RemoteMachine="T410"
+				RemoteCommand=""
+				HttpUrl=""
+				PDBPath=""
+				SQLDebugging=""
+				Environment=""
+				EnvironmentMerge="true"
+				DebuggerFlavor="0"
+				MPIRunCommand=""
+				MPIRunArguments=""
+				MPIRunWorkingDirectory=""
+				ApplicationCommand=""
+				ApplicationArguments=""
+				ShimCommand=""
+				MPIAcceptMode=""
+				MPIAcceptFilter=""
+			/>
+		</Configuration>
+	</Configurations>
+</VisualStudioUserFile>
