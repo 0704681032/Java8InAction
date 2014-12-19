@@ -153,6 +153,36 @@
         return array;
     }
     console.log("insertSort:"+insertSort([9,3,78,12,1,4,2,7]));
+    
+    
+
+    //插入排序
+   var insertSort11 = function(array,fn) {
+       console.log(array);
+       var len = array.length,i= 1,tmp,j;
+       for(;i<len;i++) {
+           tmp = array[i];//找到这个变量合适的位置插入
+           j = i;
+           while( j>0 && fn.call(array,array[j-1],tmp)>0 ) {
+               array[j] = array[j-1];
+               j--;
+           }
+
+           if ( i != j ) {
+               array[j] = tmp;
+           }
+       }
+       return array;
+   }
+   var fn1 = function(a,b){
+	   console.log(a+'_'+b+'---'+this.join('_'));
+	   return 1
+  };
+  
+   console.log("insertSort111:"+insertSort11([1,2,3,4,5,6],fn1));
+
+    
+    
 
      //希尔排序 改进版的插入排序
     var gaps = [5,2,1];
