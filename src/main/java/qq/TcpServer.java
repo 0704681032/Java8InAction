@@ -1,4 +1,4 @@
-package main.java.qq;
+package qq;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

@@ -1,4 +1,3 @@
-package main.java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,17 +35,17 @@ public class MergeSortJYY {
 
         int middle =  (end+start)/2;
         merge(array,start,middle);
-        merge(array,middle+1,end);//注意这两个middle+1的地方
+        merge(array,middle+1,end);//濞夈劍鍓版潻娆庤⒈娑撶尠iddle+1閻ㄥ嫬婀撮弬锟�
 
         innerMerge(array,start,middle,end);
         return array;
     }
 
     private static void innerMerge(int[] array, int start, int middle, int end) {
-        List<Integer> list = new ArrayList<Integer>();//存储临时数组
+        List<Integer> list = new ArrayList<Integer>();//鐎涙ê鍋嶆稉瀛樻閺佹壆绮�
 
         int i = start;
-        int j = middle+1 ;//注意这两个middle+1的地方
+        int j = middle+1 ;//濞夈劍鍓版潻娆庤⒈娑撶尠iddle+1閻ㄥ嫬婀撮弬锟�
 
         while ( i<=middle && j<=end ) {
             if (array[i] < array[j]) {
@@ -66,7 +65,7 @@ public class MergeSortJYY {
 
         //System.out.println(list);
 
-        //复制回原数组
+        //婢跺秴鍩楅崶鐐插斧閺佹壆绮�
         i=0;
         for(int k=start;k<=end;k++) {
             array[k] = list.get(i++);
@@ -75,7 +74,7 @@ public class MergeSortJYY {
     }
 
     public static void main(String[] args) {
-        int[] array = generateArray(4);
+        int[] array = generateArray(5);
         for ( int i : array ) {
             System.out.print(i+",");
         }

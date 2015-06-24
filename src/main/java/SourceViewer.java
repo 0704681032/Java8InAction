@@ -51,7 +51,9 @@ public class SourceViewer {
 		CompletionService completionService;
 		
 		Queue queue;
-
+		
+		
+		Future future;
 		
 	}
 
